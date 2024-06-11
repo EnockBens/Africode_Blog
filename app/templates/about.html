@@ -1,10 +1,24 @@
-
 {% extends "base.html" %}
 
 {% block content %}
 
+<div class="container">
+    <h1>About Me</h1>
 
-<h1>About Page</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <p>Welcome to my first website! I'm thrilled to share my passion for cars with you.</p>
+            <p>Ever since I can remember, cars have captured my imagination. From the sleek curves of classic
+                sports cars to the raw power of muscle machines, I've always been enamored by their design, performance,
+                and the stories they tell.</p>
+            <p>This website is a labor of love, where I hope to express my enthusiasm for everything automotive.
+                Whether you're a fellow enthusiast or just curious, I invite you to explore and share in my journey
+                through the world of cars.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename='images/aapp/static/profile_pics/602e8c8718081de3.jpeg') }}" class="img-fluid" alt="About Cars">
+        </div>
+    </div>
+</div>
 
-    
 {% endblock %}
