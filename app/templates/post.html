@@ -12,24 +12,32 @@
 
    <div class="media-body">
      <div class="article-metadata">
-       <a class="mr-2" href="{{ url_for('user_posts' , username= post.author.username) }}">{{ post.author.username }}</a>
-       <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
-
-      {% if post.author==current_user %}
-      <div>
-      <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('update_post', post_id=post.id) }}">Update</a>
-            <button type="button" class="btn btn-danger btn-sm m-1" data-bs-toggle="modal"  data-bs-target="#deleteModal">Delete</button>
+      <div class="row">
+      <div class="col-md-4">
+        <a class="mr-2" href="{{ url_for('user_posts' , username= post.author.username) }}">{{ post.author.username }}</a>
       </div>
 
+       <div class="col-md-4">
+        <a class="btn btn-secondary btn-sm " href="{{ url_for('update_post', post_id=post.id) }}">
+          Update
+        </a>
+      </div>
 
-       {% endif %}
+      <div class="col-md-4">
+         <button type="button" class="btn btn-danger btn-sm " data-bs-toggle="modal"  data-bs-target="#deleteModal">
+          Delete
+        </button>
+      </div>
+        </div>
+       <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
 
-
-
-     </div>
-     <h2 class="article-title">{{ post.title }}</h2>
+      
+    </div>
+     <h2><a  class="article-title" href="{{url_for('post', post_id=post.id)}}">{{ post.title }}   
+     </a></h2>
      <p class="article-content">{{ post.content }}</p>
    </div>
+   </article>
  
 
  <!-- Modal -->
@@ -38,9 +46,9 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="deleteModalLabel">Delete Post?</h5>
-        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
-          <!-- <span aria-hidden="true">&times;</span> -->
-        </button>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -54,4 +62,5 @@
 
 </article>  
 
-   {% endblock %}
+{% endblock %}
+
